@@ -44,15 +44,22 @@ export default function Home() {
     <main>
       <div>
         {/* <Home /> */}
-        <p>hii</p>
+        <div className="navBar">
+          <h4>Real Estate</h4>
+          <ul className="navList">
+            <li>Buy</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </div>
         { 
           data && data.map((d) => {
             return (
               <div key={d.zpid}>
-                <h2>Address: {d.streetAddress}</h2>
+                {/* <h2>Address: {d.streetAddress}</h2>
                 <p>Bedrooms: {d.bedrooms}</p>
                 <p>Bathrooms: {d.bathrooms}</p>
-                <img src={d.imgSrc} />
+                <img src={d.imgSrc} /> */}
               </div>
             )
           })

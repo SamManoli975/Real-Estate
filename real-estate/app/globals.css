@@ -31,3 +31,24 @@ body {
     text-wrap: balance;
   }
 }
+
+.navBar{
+  display: flex;
+  color: black;
+  background-color: green;
+  padding: 16px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+.navList{
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 16px; */
+  /* margin-left: 20px; */
+}
+.navList li{
+  font-size: 27px;
+  padding: 16px;
+}
