@@ -49,6 +49,23 @@ body {
   /* margin-left: 20px; */
 }
 .navList li{
-  font-size: 27px;
+  font-size: 17px;
   padding: 16px;
+}
+
+.searchBarContainer{
+  text-align: center;
+}
+
+.searchBar{
+  border: solid black 2px;
+  border-radius: 5px;
+  height: 5vh;
+  width: 20vw;
+}
+.filterButton{
+  /* padding-left: 50px; */
+  margin-left: 50px;
+  border: solid black 2px;
+  border-radius: 5px;
 }

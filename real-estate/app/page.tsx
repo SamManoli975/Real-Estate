@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect,useState } from "react";
+import Link from 'next/link';
 
 interface PropertyData {
   zpid: number;
@@ -47,11 +48,16 @@ export default function Home() {
         <div className="navBar">
           <h4>Real Estate</h4>
           <ul className="navList">
-            <li>Buy</li>
-            <li>About</li>
-            <li>Contact</li>
+            {/* <Link href={} >Buy</Link>
+            <Link href={} >About</Link>
+            <Link href={} >Contact</Link> */}
           </ul>
         </div>
+        <div className="searchBarContainer">
+          <input className="searchBar" type="text"></input>
+          <button className="filterButton">filter search</button>
+        </div>
+          
         { 
           data && data.map((d) => {
             return (
