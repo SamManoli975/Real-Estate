@@ -5,10 +5,11 @@ import { useEffect,useState } from "react";
 import Link from 'next/link';
 
 interface PropertyData {
+  
   zpid: number;
-  bedrooms: number;
+  bedrooms:number;
   streetAddress: string;
-  bathrooms: number;
+  bathrooms:number
   imgSrc: string;
   // Add other properties based on your actual data structure
 }
@@ -19,8 +20,9 @@ export default function Home() {
 
 
   const url = 'https://zillow56.p.rapidapi.com/search?location=houston%2C%20tx';
-
-
+  // const url = 'https://zoopla4.p.rapidapi.com/properties/new?locationKey=new-haw&maxPrice=1000&minPrice=100&maxBeds=4&sort=recommended&page=2';
+  // const url = 'https://zoopla.p.rapidapi.com/house-prices/estimate?area=Greenwich%20Close%2C%20Crawley%20RH11&identifier=west-sussex%2Fcrawley%2Fgreenwich-close&order_by=address&ordering=descending&page_number=1&page_size=40';  
+  
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -59,13 +61,22 @@ export default function Home() {
         </div>
           
         { 
-          data && data.map((d) => {
+          data && data
+          .filter(home => home.bathrooms !== null || home.bathrooms !== undefined &&
+          home.bedrooms !== null || home.bedrooms !== undefined &&
+          home.imgSrc !== null || home.imgSrc !== undefined)
+          .map((home) => {
             return (
-              <div key={d.zpid}>
-                {/* <h2>Address: {d.streetAddress}</h2>
-                <p>Bedrooms: {d.bedrooms}</p>
-                <p>Bathrooms: {d.bathrooms}</p>
-                <img src={d.imgSrc} /> */}
+              
+              <div key={home.zpid}>
+                <img className="propertyImage" src={home.imgSrc} />
+                <div className="propertyDetailsContainer">
+                  <h2 className="propertyDetails">Address: {home.streetAddress}</h2>
+                  <p className="propertyDetails">Bedrooms: {home.bedrooms}</p>
+                  <p className="propertyDetails">Bathrooms: {home.bathrooms}</p>
+                  {/* <p>hello testing testing 123</p> */}
+                </div>
+                
               </div>
             )
           })
