@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 interface PropertyData {
   
-  zpid: number;
-  bedrooms:number;
+  key: string;
+  title:string;
   streetAddress: string;
   bathrooms:number
   imgSrc: string;
@@ -19,16 +19,17 @@ export default function Home() {
   const [data, setData] = useState<Array<PropertyData>>([]);
 
 
-  const url = 'https://zillow56.p.rapidapi.com/search?location=houston%2C%20tx';
+  // const url = 'https://zillow56.p.rapidapi.com/search?location=houston%2C%20tx';
   // const url = 'https://zoopla4.p.rapidapi.com/properties/new?locationKey=new-haw&maxPrice=1000&minPrice=100&maxBeds=4&sort=recommended&page=2';
-  // const url = 'https://zoopla.p.rapidapi.com/house-prices/estimate?area=Greenwich%20Close%2C%20Crawley%20RH11&identifier=west-sussex%2Fcrawley%2Fgreenwich-close&order_by=address&ordering=descending&page_number=1&page_size=40';  
-  
+const url = 'https://www.googleapis.com/books/v1/volumes?q=life&key=AIzaSyBNfW9LIehzRmIohoJ_Y9jlSiRQu6zve5g' ;
+   // const url = 'https://openlibrary.org/search.json?q=the+lord+of+the+rings';
+
   useEffect(() => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '83d1a5a905msh10111a0cb368862p1672f9jsnaf6057e0ac2f',
-        'X-RapidAPI-Host': 'zillow56.p.rapidapi.com'
+        // 'X-RapidAPI-Key': '83d1a5a905msh10111a0cb368862p1672f9jsnaf6057e0ac2f',
+        // 'X-RapidAPI-Host': 'zillow56.p.rapidapi.com'
       }
     };
     fetch(url, options)
@@ -62,18 +63,18 @@ export default function Home() {
           
         { 
           data && data
-          .filter(home => home.bathrooms !== null || home.bathrooms !== undefined &&
-          home.bedrooms !== null || home.bedrooms !== undefined &&
-          home.imgSrc !== null || home.imgSrc !== undefined)
-          .map((home) => {
+          .filter(d => d.bathrooms !== null || d.bathrooms !== undefined &&
+          d.title !== null || d.title !== undefined &&
+          d.imgSrc !== null || d.imgSrc !== undefined)
+          .map((d) => {
             return (
               
-              <div key={home.zpid}>
-                <img className="propertyImage" src={home.imgSrc} />
+              <div key={d.key}>
+                <img className="propertyImage" src={d.imgSrc} />
                 <div className="propertyDetailsContainer">
-                  <h2 className="propertyDetails">Address: {home.streetAddress}</h2>
-                  <p className="propertyDetails">Bedrooms: {home.bedrooms}</p>
-                  <p className="propertyDetails">Bathrooms: {home.bathrooms}</p>
+                  <h2 className="propertyDetails">Address: {d.streetAddress}</h2>
+                  <p className="propertyDetails">Bedrooms: {d.title}</p>
+                  <p className="propertyDetails">Bathrooms: {d.bathrooms}</p>
                   {/* <p>hello testing testing 123</p> */}
                 </div>
                 
