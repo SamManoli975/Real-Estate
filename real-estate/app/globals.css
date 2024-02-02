@@ -94,3 +94,11 @@ body {
   display: flex;
   /* flex-direction: column; */
 }
+
+.card {
+  /* height: 300px;
+  width: 200px;
+  background-color: grey; */
+  text-align: center;
+  margin: 10px;
+}
