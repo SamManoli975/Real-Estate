@@ -16,12 +16,12 @@ const Card = ({ book }:{book:any}) => {
                     let title = item.volumeInfo.title;
                     // let title = item.
                     return (
-                        <div>
+                        <div className="container">
                         <p>
                             this is the card
                         </p>
                         <div key={item.id} className="card">
-                            <img src={thumbnail} alt={title} />
+                            <img className="thumbnail" src={thumbnail} alt={title} />
                             <div className="bottomCard">
                                 <h3 className="title">{title}</h3>
                                 {/* <p>&#8377;3290</p> */}
