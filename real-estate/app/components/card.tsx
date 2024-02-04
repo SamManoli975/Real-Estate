@@ -12,25 +12,27 @@ const Card = ({ book }:{book:any}) => {
         <div>
             {
                 book.map((item: any) => {
-                    let thumbnail = item.volumeInfo.imageLinks.thumbnail;
+                    let thumbnail = item.volumeInfo.imageLinks.thumbnail ?? null;
                     let title = item.volumeInfo.title;
                     // let title = item.
                     return (
                         <div className="container">
-                        <p>
-                            this is the card
-                        </p>
-                        <div key={item.id} className="card">
-                            <img className="thumbnail" src={thumbnail} alt={title} />
-                            <div className="bottomCard">
-                                <h3 className="title">{title}</h3>
-                                {/* <p>&#8377;3290</p> */}
+
+                            <div key={item.id} className="card">
+
+                                <img className="thumbnail" src={thumbnail} alt={title} />
+
+                                <div className="bottomCard">
+
+                                    <h3 className="title">{title}</h3>
+                                    
+                                    {/* <p>&#8377;3290</p> */}
 
 
 
 
+                                </div>
                             </div>
-                        </div>
                         {/* <Modal show={show} item={bookItem} onClose={()=>setShow(false)}/> */}
                         </div>
                     )
