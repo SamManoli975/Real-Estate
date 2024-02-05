@@ -33,73 +33,38 @@ body {
   }
 }
 
-.navBar{
-  display: flex;
-  color: black;
-  background-color: green;
-  padding: 16px;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 20px;
-}
-.navList{
-  text-decoration: none;
-  display: flex;
-  justify-content: space-between;
-  /* padding: 16px; */
-  /* margin-left: 20px; */
-}
-.navList li{
-  font-size: 17px;
-  padding: 16px;
-}
-
-.searchBarContainer{
-  text-align: center;
-}
-
-.searchBar{
-  border: solid black 2px;
-  border-radius: 5px;
-  height: 5vh;
-  width: 20vw;
-}
-
-
-
-.card {
-  width: 30%; /* Set the width to accommodate 3 cards in a row with some spacing */
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-.card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.thumbnail{
-  /* width: 200px;
-  height: 350px; */
-  width: 100%;
-  height: auto;
-}
-.container card img{
+.container{
+  
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+  
+}
+.container >div{
+  width: 23%;
+}
+.card-container {
+  width:100%;
+  padding: 5px;
 
-  /* width: 65%; */
-  /* margin: 0 auto;
-  margin-top: 25px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,0.5fr)); 
-  grid-gap:20px; 
-  box-sizing: border-box; */
 }
+.card{
+  
+  width: 100%;
+  
+  padding: 5px;
+}
+.thumbnail {
+  
+  
+  height: 300px;
+  width: 200px;
+  padding: 5px;
+   
+}
+
 .title {
-  margin: 10px 0;
-}
-.bottomCard {
-  padding: 10px;
+  margin-top: 10px; /* Add space between image and title */
+  font-weight: bold;
 }

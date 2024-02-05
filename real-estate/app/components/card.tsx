@@ -12,24 +12,21 @@ const Card = ({ book }:{book:any}) => {
         <div>
             {
                 book.map((item: any) => {
-                    let thumbnail = item.volumeInfo.imageLinks.thumbnail ?? null;
+                    let thumbnail=item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
                     let title = item.volumeInfo.title;
                     // let title = item.
                     return (
-                        <div className="container">
+                        <div  className="card-container">
 
                             <div key={item.id} className="card">
 
                                 <img className="thumbnail" src={thumbnail} alt={title} />
 
-                                <div className="bottomCard">
+                                <div className="bottom">
 
                                     <h3 className="title">{title}</h3>
                                     
                                     {/* <p>&#8377;3290</p> */}
-
-
-
 
                                 </div>
                             </div>
