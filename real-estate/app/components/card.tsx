@@ -17,6 +17,17 @@ const Card = ({ book }:{book:any}) => {
                     let title = item.volumeInfo.title;
                     let link = item.volumeInfo.infoLink;
                     // let title = item.
+                    // Function to truncate the title to a certain number of words
+                    const truncateTitle = (str: string, limit: number) => {
+                        if (str.length > limit) {
+                          return str.slice(0, limit) + '...';
+                        } else {
+                          return str;
+                        }
+                      };
+                
+                      // Truncate the title to, for example, 20 letters
+                      const truncatedTitle = truncateTitle(title, 39);
                     return (
                         <div  className="card-container">
 
@@ -26,7 +37,7 @@ const Card = ({ book }:{book:any}) => {
 
                                 <div className="bottom">
 
-                                    <h3 className="title">{title}</h3>
+                                    <h3 className="title">{truncatedTitle}</h3>
                                     <Link href={link}>more info</Link>
                                     
                                     {/* <p>&#8377;3290</p> */}
