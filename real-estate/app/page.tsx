@@ -14,7 +14,7 @@ const Main = () => {
 
   const searchBook = (evt: React.KeyboardEvent) => {
     if (evt.key === "Enter") {
-      axios.get('https://www.googleapis.com/books/v1/volumes?q='+search+'&key=AIzaSyBNfW9LIehzRmIohoJ_Y9jlSiRQu6zve5g'+'&maxResults=2'+'&langRestrict=en')
+      axios.get('https://www.googleapis.com/books/v1/volumes?q='+search+'&key=AIzaSyBNfW9LIehzRmIohoJ_Y9jlSiRQu6zve5g'+'&maxResults=10'+'&langRestrict=en')
       .then(res => {
         console.log(res.data.items || []);
         setBookData(res.data.items || []);

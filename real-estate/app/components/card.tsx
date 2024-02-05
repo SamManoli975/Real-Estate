@@ -1,4 +1,5 @@
 import react,{useState} from "react";
+import Link from 'next/link';
 
 const Card = ({ book }:{book:any}) => {
     const [show,setShow]=useState(false);
@@ -14,6 +15,7 @@ const Card = ({ book }:{book:any}) => {
                 book.map((item: any) => {
                     let thumbnail=item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
                     let title = item.volumeInfo.title;
+                    let link = item.volumeInfo.infoLink;
                     // let title = item.
                     return (
                         <div  className="card-container">
@@ -25,6 +27,7 @@ const Card = ({ book }:{book:any}) => {
                                 <div className="bottom">
 
                                     <h3 className="title">{title}</h3>
+                                    <Link href={link}>more info</Link>
                                     
                                     {/* <p>&#8377;3290</p> */}
 
