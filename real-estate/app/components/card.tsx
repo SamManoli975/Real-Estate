@@ -1,5 +1,6 @@
 import react,{useState} from "react";
 import Link from 'next/link';
+import Modal from './overlay';
 
 const Card = ({ book }:{book:any}) => {
     const [show,setShow]=useState(false);
@@ -31,20 +32,21 @@ const Card = ({ book }:{book:any}) => {
                     return (
                         <div  className="card-container">
 
-                            <div key={item.id} className="card">
+                            <div key={item.id} className="card" onClick={()=>{setShow(true);setItem(item);}} >
 
                                 <img className="thumbnail" src={thumbnail} alt={title} />
 
                                 <div className="bottom">
 
                                     <h3 className="title">{truncatedTitle}</h3>
-                                    <Link href={link}>more info</Link>
+                                    <h3>Authors: {item.volumeInfo.authors && item.volumeInfo.authors.join(',    ')}</h3>
+                                    {/* <Link className="moreInfoLink" href={link}>more info</Link> */}
                                     
                                     {/* <p>&#8377;3290</p> */}
 
                                 </div>
                             </div>
-                        {/* <Modal show={show} item={bookItem} onClose={()=>setShow(false)}/> */}
+                            <Modal show={show} item={bookItem} onClose={()=>setShow(false)}/>
                         </div>
                     )
                 })
