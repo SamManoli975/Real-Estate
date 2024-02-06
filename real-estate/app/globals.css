@@ -36,6 +36,14 @@ body {
   padding: 10px;
   /* display: flex; */
 }
+.searchButton{
+  border: solid black 3px;
+  border-radius: 7px;
+  background-color: white;
+  margin: 10px;
+  font-size: 20px;
+}
+
 .search{
   padding: 10px;
   width: 30vw;
@@ -118,5 +126,45 @@ body {
   background-color: white;
 }
 .overlay-content{
-  background-color: white;
+  background: rgb(203, 175, 175);
+  width: 900px;
+  height: 600px;
+  padding: 1.5rem;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 15px;
+}
+.overlay-title{
+  margin-top: 10px;
+  font-size: 20px;
+  margin: 10px;
+  padding: 	10px;
+}
+.inner-box{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  
+}
+.inner-box img{
+  margin-right: 30px;
+  width: 150px;
+  height: 200px;
+  border: solid black 5px;
+}
+
+.infoLink{
+  border: solid black 1px;
+  border-radius: 3px;
+  background-color: gray;
+  font-size: 15px;
+
+}
+.previewLink{
+  border: solid black 1px;
+  border-radius: 3px;
+  background-color: gray;
+  font-size: 15px;
+
 }

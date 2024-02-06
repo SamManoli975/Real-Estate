@@ -33,7 +33,7 @@ const Main = () => {
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={searchBook} />
           
-        <button type="submit">search</button>
+        <button className="searchButton" type="submit">search</button>
       </div>
       <div className="container" >
         {bookData.length > 0 ? (
