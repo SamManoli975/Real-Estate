@@ -81,8 +81,8 @@ body {
 .thumbnail {
   
   
-  height: 300px;
-  width: 200px;
+  height: 70%;
+  width: 70%;
   padding: 5px;
    
 }
@@ -113,10 +113,10 @@ body {
   justify-content: center;
   
 }
-.overlay .overlay-content img{
-  width :200px;
-  height:350px;
-}
+/* .overlay .overlay-content img{
+  width :30%;
+  height:40%;
+} */
 .overlay .overlay-content p{
   text-align: center;
   
@@ -130,8 +130,8 @@ body {
 }
 .overlay-content{
   background: rgb(203, 175, 175);
-  width: 900px;
-  height: 650px;
+  width: 70%;
+  height: 95%;
   padding: 1.5rem;
   position: relative;
   box-sizing: border-box;
@@ -152,8 +152,8 @@ body {
 }
 .inner-box img{
   margin-right: 30px;
-  width: 150px;
-  height: 200px;
+  width: 20%;
+  height: 35%;
   border: solid black 5px;
 }
 

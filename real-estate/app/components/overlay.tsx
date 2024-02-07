@@ -21,7 +21,7 @@ const Modal=({show,item,onClose}:{show:any,item:any,onClose:any})=>{
     };
     
     // Truncate the description to, for example, 100 letters
-    const truncatedDescription = truncateTitle(description, 1000);
+    const truncatedDescription = truncateTitle(description, 800);
     return(
         
 
