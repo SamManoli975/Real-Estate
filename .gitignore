@@ -6,6 +6,8 @@
 .pnp.js
 .yarn/install-state.gz
 
+#adding node modules folder
+/node_modules
 # testing
 /coverage
 

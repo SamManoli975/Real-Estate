@@ -35,14 +35,14 @@ const Modal=({show,item,onClose}:{show:any,item:any,onClose:any})=>{
                     <br/>
                     
                 </div>
-                <Link className="infoLink" href={item.volumeInfo.infoLink}>More info</Link>
+                <Link className="infoLink" target="_blank" href={item.volumeInfo.infoLink}>More info</Link>
                 <h2>Categories: {item.volumeInfo.categories}</h2>
                 <h2>Authors: {item.volumeInfo.authors}</h2>
                 <h2>Publisher: {item.volumeInfo.publisher}</h2>
                 <h2>Date Published: {item.volumeInfo.publishedDate}</h2>
                 <h2>Page Count: {item.volumeInfo.pageCount}</h2>
                 <h2>Average Rating: {item.volumeInfo.averageRating}</h2>
-                <Link className="previewLink" href={item.volumeInfo.previewLink}>Preview Book</Link>
+                <Link className="previewLink" target="_blank" href={item.volumeInfo.previewLink}>Preview Book</Link>
             </div>
         </div>
     )
