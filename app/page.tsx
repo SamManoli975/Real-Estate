@@ -1,5 +1,5 @@
 "use client";
-//google book api project
+//google book api projects
 
 import Image from "next/image";
 import react, { useEffect,useState } from "react";
