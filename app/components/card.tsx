@@ -1,58 +1,50 @@
-import react,{useState} from "react";
-import Link from 'next/link';
+import React, { useState } from "react";
+import Image from 'next/image';
 import Modal from './overlay';
 
-const Card = ({ book }:{book:any}) => {
-    const [show,setShow]=useState(false);
-    const [bookItem,setItem]=useState();
-    console.log('hello');
-    console.log(book);
-    if (book.length === 0) {
+const Card = ({ book }: { book: any }) => {
+    const [show, setShow] = useState(false);
+    const [bookItem, setItem] = useState(null);
+
+    // Check for empty book array
+    if (!book || book.length === 0) {
         return <p>No books found.</p>;
-      }
+    }
+
+    // Function to truncate the title to a certain number of characters
+    const truncateTitle = (str: string, limit: number) => {
+        return str.length > limit ? str.slice(0, limit) + '...' : str;
+    };
+
     return (
         <div>
-            {
-                book.map((item: any) => {
-                    let thumbnail=item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
-                    let title = item.volumeInfo.title;
-                    let link = item.volumeInfo.infoLink;
-                    // let title = item.
-                    // Function to truncate the title to a certain number of words
-                    const truncateTitle = (str: string, limit: number) => {
-                        if (str.length > limit) {
-                          return str.slice(0, limit) + '...';
-                        } else {
-                          return str;
-                        }
-                      };
-                
-                      // Truncate the title to, for example, 20 letters
-                      const truncatedTitle = truncateTitle(title, 39);
-                    return (
-                        <div  className="card-container">
+            {book.map((item: any) => {
+                const thumbnail = item.volumeInfo.imageLinks?.smallThumbnail || '/default-thumbnail.jpg'; // Replace with a default image path if needed
+                const title = item.volumeInfo.title;
+                const truncatedTitle = truncateTitle(title, 39);
 
-                            <div key={item.id} className="card" onClick={()=>{setShow(true);setItem(item);}} >
-
-                                <img className="thumbnail" src={thumbnail} alt={title} />
-
-                                <div className="bottom">
-
-                                    <h3 className="title">{truncatedTitle}</h3>
-                                    <h3>Authors: {item.volumeInfo.authors && item.volumeInfo.authors.join(',    ')}</h3>
-                                    {/* <Link className="moreInfoLink" href={link}>more info</Link> */}
-                                    
-                                    {/* <p>&#8377;3290</p> */}
-
-                                </div>
+                return (
+                    <div key={item.id} className="card-container">
+                        <div className="card" onClick={() => { setShow(true); setItem(item); }}>
+                            <Image
+                                className="thumbnail"
+                                src={thumbnail}
+                                alt={title}
+                                width={100} // Set desired width
+                                height={150} // Set desired height
+                            />
+                            <div className="bottom">
+                                <h3 className="title">{truncatedTitle}</h3>
+                                <h3>Authors: {item.volumeInfo.authors?.join(', ')}</h3>
                             </div>
-                            <Modal show={show} item={bookItem} onClose={()=>setShow(false)}/>
                         </div>
-                    )
-                })
-            }
+                        {/* Modal component for additional book details */}
+                        <Modal show={show} item={bookItem} onClose={() => setShow(false)} />
+                    </div>
+                );
+            })}
+        </div>
+    );
+};
 
-            </div>
-    )
-}
 export default Card;
